@@ -8,3 +8,51 @@ wheels/
 
 # Virtual environments
 .venv
+
+
+# Virtuelle Umgebung
+.venv/
+venv/
+ENV/
+
+# Byte-kompilierte / optimierte / DLL-Dateien
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / Packaging
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Daten (optional, je nach Projektanforderungen)
+data/raw/
+data/processed/
+
+# Modelle (können groß sein)
+*.pkl
+*.h5
+*.joblib
+
+# Logs
+logs/
+*.log
+
+# Environment-spezifische Dateien
+.env
+.env.local
+*.env
+
+# IDE-spezifische Dateien
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Betriebssystem-spezifische Dateien
+.DS_Store
+Thumbs.db
