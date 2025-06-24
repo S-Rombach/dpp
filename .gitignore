@@ -56,3 +56,5 @@ logs/
 # Betriebssystem-spezifische Dateien
 .DS_Store
 Thumbs.db
+
+ignored/
