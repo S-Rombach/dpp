@@ -38,6 +38,7 @@ data/processed/
 *.pkl
 *.h5
 *.joblib
+models/
 
 # Logs
 logs/
