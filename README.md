@@ -1,4 +1,11 @@
+
 # Project
+
+## Aim
+
+This project aims to predict two types of diabetese in a person or if the person is healthy (i.e. has no diabetes) based on the history of the patient.
+
+The primary metric is precision. If a person is diagnosed, their actual state should match it.
 
 ## Data
 
