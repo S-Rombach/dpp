@@ -36,12 +36,14 @@ print(f"✅ Downloaded: '{DATASET}' into '{RAWDATA_DIR}'")
 
 os.makedirs(SPLIT_DATA_DIR, exist_ok=True)
 
-df_raw = pd.read_csv(os.path.join(RAWDATA_DIR, "diabetes_012_health_indicators_BRFSS2015.csv"))
+df_raw = pd.read_csv(
+    os.path.join(RAWDATA_DIR, "diabetes_012_health_indicators_BRFSS2015.csv")
+)
 
 X_train, X_temp = train_test_split(df_raw, random_state=42, test_size=0.15)
-X_test, X_val = train_test_split(X_train, random_state=42, test_size=0.66)
+X_val, X_test = train_test_split(X_temp, random_state=42, test_size=0.33)
 
 
 X_train.to_csv(os.path.join(SPLIT_DATA_DIR, "train_raw_split.csv"), index=False)
-X_test.to_csv(os.path.join(SPLIT_DATA_DIR, "test_raw_split.csv"), index=False)
 X_val.to_csv(os.path.join(SPLIT_DATA_DIR, "validation_raw_split.csv"), index=False)
+X_test.to_csv(os.path.join(SPLIT_DATA_DIR, "test_raw_split.csv"), index=False)
