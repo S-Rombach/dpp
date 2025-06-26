@@ -31,6 +31,7 @@ build/
 
 # Daten (optional, je nach Projektanforderungen)
 data/raw/
+data/split/
 data/processed/
 
 # Modelle (können groß sein)
