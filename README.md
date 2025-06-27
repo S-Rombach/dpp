@@ -3,9 +3,54 @@
 
 ## Aim
 
-This project aims to predict two types of diabetese in a person or if the person is healthy (i.e. has no diabetes) based on the history of the patient.
+### Primary: Predict two types of diabtes
 
-The primary metric is precision. If a person is diagnosed, their actual state should match it.
+This project aims to predict two types of diabtes in a person or if the person is healthy (i.e. has no diabetes) based on the history of the patient.
+
+The primary metric is f1-score.
+
+### Revised Aim: Distinguish healthy from persons with diabtes
+
+This project aims to predict whether a person has diabetes.
+
+This change is necessary, because separating the two types of diabetes in person from healthy is not satisfyingly possible with this data. See section _Results > Primary_.
+
+## Results
+
+### Primary: Predict two types of diabtes
+
+All shown models are default RandomForests with `class_weight="balanced"`. All evaluation was done on a held-out test set.
+
+The majority class of healthy people prevents effective learning of patterns of diabetes. The baseline model `2025-06-27_10-12-18` heavily favors class 0 (healthy) and never predicts class 1.
+
+_Confusion Matrix of 2025-06-27_10-12-18_
+
+| True \ Pred |   0   |   1   |   2   |
+|-------------|-------|-------|-------|
+| **0**       | 20712 |   64  |  688  |
+| **1**       |  449  |   0   |  39   |
+| **2**       | 2968  |   7   |  567  |
+
+Neither default SMOTE (model `2025-06-27_10-08-08`) nor sole upsampling of class 1 (model `2025-06-27_10-26-03`) improves the prediction.
+
+_Confusion Matrix of 2025-06-27_10-08-08_
+
+| True \ Pred |   0   |   1   |   2   |
+|-------------|-------|-------|-------|
+| **0**       | 20067 |  39   | 1358  |
+| **1**       |  405  |   0   |  83   |
+| **2**       | _2490_  |   8   | 1044  |
+
+A baseline model `2025-06-27_11-25-16` to distinguish classes 1 and 2 confirms that the data lacks sufficient structure to distinguish class 1 from class 2.
+
+_Confusion Matrix of 2025-06-27_11-25-16_
+
+| True \ Pred |   1   |   2   |
+|-------------|-------|-------|
+| **1**       |  14   |  _474_  |
+| **2**       |  46   | 3496  |
+
+The aim of this project is therefore revised to **predict any form of diabetes**.
 
 ## Data
 
